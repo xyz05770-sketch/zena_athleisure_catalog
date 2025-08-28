@@ -30,7 +30,7 @@ if not result_row.empty:
     sizes_list = result_row.iloc[0]['SIZE_LIST']
     upsell = result_row.iloc[0]['UPSELL_PRODUCT_DESC']
 
-    st.markdown('**Price:** '+ price)
+    st.markdown('**Price:** '+ str(price))
     st.markdown('**Sizes Available:** ' + sizes_list)
     st.markdown('**Also Consider:** ' + upsell)
     

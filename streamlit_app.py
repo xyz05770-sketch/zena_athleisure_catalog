@@ -9,8 +9,8 @@ cnx = st.connection("snowflake")
 session = cnx.session()
 
 my_dataframe = session.table("ZENAS_ATHLEISURE_DB.PRODUCTS.CATALOG_FOR_WEBSITE").select(col('COLOR_OR_STYLE'), col('SIZE_LIST'), col('FILE_URL'), col('UPSELL_PRODUCT_DESC'), col('PRICE'))
-st.dataframe(data=my_dataframe, use_container_width=True)
-st.stop()
+# st.dataframe(data=my_dataframe, use_container_width=True)
+# st.stop()
 
 pd_df = my_dataframe.to_pandas()
 color_or_style_tuple = tuple(pd_df['COLOR_OR_STYLE'])

@@ -25,5 +25,15 @@ result_row = pd_df[pd_df['COLOR_OR_STYLE'] == option]
 if not result_row.empty:
     file_url = result_row.iloc[0]['FILE_URL']
     st.image(file_url, caption=f"Our warm, comfortable, {option} sweatsuit!")
+
+    price = result_row.iloc[0]['PRICE']
+    st.write(f'Price: {price}')
+
+    sizes_list = result_row.iloc[0]['SIZE_LIST']
+    st.write(f'Sizes Available: {sizes_list}')
+
+    description = result_row.iloc[0]['UPSELL_PRODUCT_DESC']
+    st.write(description)
+    
 else:
     st.write("No file URL found for the selected color or style.")

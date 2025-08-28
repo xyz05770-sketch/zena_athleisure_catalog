@@ -12,4 +12,12 @@ my_dataframe = session.table("ZENAS_ATHLEISURE_DB.PRODUCTS.CATALOG_FOR_WEBSITE")
 st.dataframe(data=my_dataframe, use_container_width=True)
 st.stop()
 
-# pd_df = my_dataframe.to_pandas()
+pd_df = my_dataframe.to_pandas()
+color_or_style_tuple = tuple(pd_df['COLOR_OR_STYLE'])
+
+option = st.selectbox(
+    "Pick a sweatsuit color or style:",
+    color_or_style_tuple,
+)
+
+st.write("You selected:", option)

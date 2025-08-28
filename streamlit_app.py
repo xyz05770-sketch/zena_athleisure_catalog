@@ -27,13 +27,12 @@ if not result_row.empty:
     st.image(file_url, caption=f"Our warm, comfortable, {option} sweatsuit!")
 
     price = result_row.iloc[0]['PRICE']
-    st.write(f'Price: {price}')
-
     sizes_list = result_row.iloc[0]['SIZE_LIST']
-    st.write(f'Sizes Available: {sizes_list}')
+    upsell = result_row.iloc[0]['UPSELL_PRODUCT_DESC']
 
-    description = result_row.iloc[0]['UPSELL_PRODUCT_DESC']
-    st.write(description)
+    st.markdown('**Price:** '+ price)
+    st.markdown('**Sizes Available:** ' + sizes_list)
+    st.markdown('**Also Consider:** ' + upsell)
     
 else:
     st.write("No file URL found for the selected color or style.")

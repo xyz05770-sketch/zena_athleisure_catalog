@@ -20,4 +20,10 @@ option = st.selectbox(
     color_or_style_tuple,
 )
 
-st.write("You selected:", option)
+result_row = pd_df[pd_df['COLOR_OR_STYLE'] == option]
+
+if not result_row.empty:
+    file_url = result_row.iloc[0]['FILE_URL']
+    st.image(file_url, caption=f"Our warm, comfortable, {option} sweatsuit!")
+else:
+    st.write("No file URL found for the selected color or style.")
